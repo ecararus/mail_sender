@@ -4,7 +4,7 @@ class EmailConnection:
     def __init__(self):
         try:
             config = SafeConfigParser()
-            config.read('owk.cfg')
+            config.read('../resources/owk.cfg')
             self.fromEmail = config.get('email', 'fromEmail')
             self.password = config.get('email', 'password')
             self.server = config.get('email', 'server')

@@ -34,17 +34,17 @@ class Email(object):
         msg['From'] = self.emailProperty.fromEmail
         msg['To'] = toEmail
         msg['Subject'] = subject
-        msg.attach(MIMEText(body, 'plain'))
+        msg.attach(MIMEText(body, 'html'))
         msg.attach(attachment)
         try:
             session.sendmail(self.emailProperty.fromEmail, toEmail, msg.as_string())
         except Exception, e:
             print str(e)
 
-    def load_Attachements(self, attachmentFileName):
-        attachment = open(attachmentFileName, "rb")
+    def load_attachements(self, attachment, attachment_file_name):
+        # attachment = open(attachmentFileLocation, "rb")
         part = MIMEBase('application', 'octet-stream')
-        part.set_payload((attachment).read())
+        part.set_payload(attachment)
         encoders.encode_base64(part)
-        part.add_header('Content-Disposition', "attachment; filename= %s" % attachmentFileName)
+        part.add_header('Content-Disposition', "attachment; filename= %s" % attachment_file_name)
         return part

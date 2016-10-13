@@ -1,0 +1,7 @@
+VersionEye notification
+
+VersionEye notifies you about out-dated dependencies, security vulnerabilities and license violations in your Git repositories
+
+Project name: {{project_name}}: {{ href }}
+Versions: {{dependency_versions_problem}}
+Licenses: {{dependency_licenses_problem}}
